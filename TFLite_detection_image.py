@@ -161,10 +161,11 @@ for image_path in images:
             cv2.rectangle(image, (xmin, label_ymin-labelSize[1]-10), (xmin+labelSize[0], label_ymin+baseLine-10), (255, 255, 255), cv2.FILLED) # Draw white box to put label text in
             cv2.putText(image, label, (xmin, label_ymin-7), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2) # Draw label text
 
+    #Print results
+    print(object_name,' : ',scores[0]*100,'%')
+
     # All the results have been drawn on the image, now display the image
     cv2.imshow('Object detector', image)
-
-    print(object_name,' : ',scores[0]*100,'%')
 
     # Press any key to continue to next image, or press 'q' to quit
     if cv2.waitKey(0) == ord('q'):
